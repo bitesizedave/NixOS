@@ -94,7 +94,25 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      bitwarden-desktop
+      vscode
+      steam
+      neofetch
+      ghostty
+      rustc
+      cargo
+      clippy
+      rust-analyzer
+    ];
+  };
+
+ users.users.robin = {
+    isNormalUser = true;
+    description = "robin";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+      google-chrome
     ];
   };
 
@@ -106,7 +124,7 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.enable = false;
   services.displayManager.autoLogin.user = "dave";
 
   # Install firefox.
@@ -118,8 +136,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    neovim
+    git
     wget
+    tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,4 +170,24 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  # Laptop battery saving
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
+
+  #Disable power-profiles-daemon GNOME power management
+  services.power-profiles-daemon.enable = false;
+
+  #Enable powertop
+  powerManagement.powertop.enable = true;
+
+  #Enable thermald in intel cpus
+  services.thermald.enable = true;
 }

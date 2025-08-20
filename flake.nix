@@ -31,6 +31,13 @@
         inputs.home-manager.nixosModules.default
         ];
       };
+     dell_laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/dell_laptop/configuration.nix
+        inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
