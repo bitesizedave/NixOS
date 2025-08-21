@@ -142,6 +142,7 @@
     ghostty
     screenfetch
     mangohud
+    lutris
   ];
 
   programs.steam.enable = true;
