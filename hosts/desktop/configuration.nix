@@ -143,6 +143,7 @@
     screenfetch
     mangohud
     lutris
+    discord-ptb
   ];
 
   programs.steam.enable = true;
