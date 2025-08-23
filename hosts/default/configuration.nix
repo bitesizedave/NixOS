@@ -11,7 +11,7 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -50,6 +50,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -101,7 +102,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "dave" = import ./home.nix;
+      "dave" = import ./home.nix;protonup-qt
     };
   };
 

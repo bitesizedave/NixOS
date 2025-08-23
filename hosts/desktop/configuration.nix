@@ -115,10 +115,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
+  # List packages installed in systprotonup-qtem profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     steam
+    protonup-qt
     heroic
     itch
     prismlauncher
@@ -144,6 +145,7 @@
     mangohud
     lutris
     discord-ptb
+    tic-80
   ];
 
   programs.steam.enable = true;

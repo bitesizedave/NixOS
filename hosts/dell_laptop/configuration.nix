@@ -51,6 +51,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -103,6 +104,8 @@
       cargo
       clippy
       rust-analyzer
+      protonup-qt
+      tic-80
     ];
   };
 
